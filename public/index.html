@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="searchApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>This is our search app</title>
+</head>
+<body ng-controller="MainController">
+  <h4>Enter Search Term Here</h4>
+  <input type="text" placeholder="type here" ng-model="searchTerm"/>
+
+  <div ng-if="results.length">
+    <div ng-repeat="result in $parent.results">
+      <a ng-href="{{result.url}}" target="_blank">
+        <span>
+          <img ng-src="{{result.thumbnails[0].url}}" alt="" width="100"/>
+        </span>
+        <span>
+          <div><strong>{{result.title}}</strong></div>
+          <div><strong>{{result.statistics.viewCount}}</strong></div>
+          <div style="font-size:8px;">{{result.description}}</div>
+        </span>
+      </a>
+    </div>
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
